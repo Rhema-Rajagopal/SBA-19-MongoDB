@@ -1,7 +1,7 @@
 const asyncHandler = require("express-async-handler");
 const User = require("../db/User");
 
-const getUser = asyncHandler(async (req, res) => {
+const getUsers = asyncHandler(async (req, res) => {
   const users = await User.find();
   res.status(200).json(users);
 });
@@ -32,7 +32,7 @@ const getUserByName = asyncHandler(async (req, res) => {
   res.status(200).json(users);
 });
 
-const updatedUser = asyncHandler(async (req, res) => {
+const updateUser = asyncHandler(async (req, res) => {
   const users = await User.findByName(req.params.name);
   if (!users) {
     res.status(400);
